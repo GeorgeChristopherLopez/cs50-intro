@@ -36,41 +36,34 @@ int main(int argc, string argv[])
                   
                           // convert string to interger
                         int k = atoi(argv[1]);
-                        // remainder of 26
+                        int key = (k % 26);
                    
                           
-                        //promt user for plaintext
-
-                     
+                       //promt user for plaintext
                        string plaintext = get_string("plaintext: ");
-                      
-                  
-                        //iterate over each char of the plaintext
-                         int plaintextLength = strlen(plaintext);
+                       
+                       //iterate over each char of the plaintext
+                      int plaintextLength = strlen(plaintext);
+                       
                       for(int j = 0; j < plaintextLength; j++)
                       {
-                        plaintext[j] = plaintext[j] + k;
+                        //if uppercase rotate preserving case
+                        //if lowercase rotate preserving case
+                        //if neither print char as is
+                        if (isalpha(plaintext[j])){
+                            for (int m = 0; m < key; m++){
+                                if (plaintext[j]=='z'){
+                                    plaintext[j]= 'a';
+                                } else if (plaintext[j]=='Z'){
+                                    plaintext[j] = 'A';
+                                } else 
+                                    plaintext[j]++;
+                            }
+                                                        
+                        }
                        }
                         printf("ciphertext: %s\n", plaintext);
-                      
-      
-      
-      
-      
-      
-      
-      
-      
-                    
 
-                        //if uppercase rotate preserving case
-
-                        //if lowercase rotate preserving case
-
-                        //if neither print char as is
-
-                        //print \n
-                     
                      
                   }
   
